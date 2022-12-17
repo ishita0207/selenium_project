@@ -48,7 +48,7 @@ for j in state_name:
         else:
             f = open('C:/Users/Ashish Goyal/Desktop/devOps_challenges/prog2.csv', 'w')
             writer = csv.writer(f)
-            writer.writerow([all_info[l],])
+            writer.writerow(j,Name_Type[l],Phone_Number[l])
             driver.get(main_url)
         # try:
         #     print(i.text)
