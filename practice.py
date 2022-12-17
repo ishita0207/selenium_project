@@ -49,26 +49,11 @@ for j in state_name:
         if(Name_Type[l] == "© 2015 - 2022 Indianhelpline.com"):
             exit
         else:
-            f = open('C:/Users/Ashish Goyal/Desktop/devOps_challenges/prog2.csv', 'w')
-            writer = csv.writer(f)
             writer.writerow([j,Name_Type[l],Phone_Number[l]])
     driver.get(main_url)
-    print("**********************NEW WEBISTE STARTED***********************")
-        # try:
-        #     print(i.text)
-        # except NoSuchElementException as exception:
-        #     exit
-# writer.writerow(value)
-# print("came out of loop")
-# data = pd.read_csv("prog2.csv")
-# data = pd.DataFrame(data)
-# for i in range(1):
-#         i = str(data.loc[i,'StateName'])
-#         v = driver.find_element(By.LINK_TEXT,i)
-#         url = str(v.get_attribute("href"))
-#         optn = webdriver.ChromeOptions()
-#         optn.add_argument('headless')
-#         driver = webdriver.Chrome("C:/Users/Ashish Goyal/Downloads/chromedriver_win32/chromedriver.exe",options=optn)
-#         driver.get(url)
-#         detail_info = driver.find_element(By.CLASS_NAME,"wb-stl-special")
-#         print(detail_info.size)
+    print("************************NEW--WEBISTE--STARTED*************************")
+# req = requests.get("C:/Users/Ashish Goyal/Desktop/devOps_challenges/prog2.csv")
+# url_content = req.content
+# csv_file = open('download.csv','wb')
+# csv_file.write(url_content)
+# csv_file.close()
