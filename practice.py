@@ -19,48 +19,37 @@ header = ['StateName', 'Type', 'Phone Number']
 f = open('C:/Users/Ashish Goyal/Desktop/devOps_challenges/prog2.csv', 'w')
 writer = csv.writer(f)
 writer.writerow(header)
-# print(state_name)
-# for j in "ANDAMAN AND NICOBAR ISLAND":
-
-v = driver.find_element(By.LINK_TEXT,"ANDAMAN AND NICOBAR ISLAND")
-url = str(v.get_attribute("href"))
-print(url)
-driver.get(url)
-print("Site Opened")
-detail_info = driver.find_elements(By.CLASS_NAME,"wb-stl-special")
-Name_Type=[]
-Phone_Number=[]
-all_info = []
-count = 0
-for k in detail_info:
-    k = str(k.text)
-    all_info.insert(count,k)
-    count = count +1
-iterations = 0
-print(len(all_info))
-print(all_info)
-for i in range(len(all_info)-1):
-    if(all_info[iterations].isdigit()):
-        Phone_Number.append(all_info[iterations])
-        iterations+=1
-    else:
-        Name_Type.append(all_info[iterations])
-        iterations+=1
-print("Name of the type")
-print(Name_Type)
-print("Phone_Number")
-print(Phone_Number)
-#     print(len(detail_info))
-#     i = str(i.text)
-#     if i == "© 2015 - 2022 Indianhelpline.com":
-#         break
-#     else:
-#         f = open('C:/Users/Ashish Goyal/Desktop/devOps_challenges/prog2.csv', 'w')
-#         writer = csv.writer(f)
-#         for m in range(len(detail_info)-1):
-            
-#             writer.writerow([j,])
-#             driver.get(main_url)
+for j in state_name:
+    v = driver.find_element(By.LINK_TEXT,j)
+    url = str(v.get_attribute("href"))
+    driver.get(url)
+    detail_info = driver.find_elements(By.CLASS_NAME,"wb-stl-special")
+    Name_Type=[]
+    Phone_Number=[]
+    all_info = []
+    count = 0
+    for k in detail_info:
+        k = str(k.text)
+        all_info.insert(count,k)
+        count = count +1
+    first_it = 0
+    second_it = 1
+    for i in range(len(all_info)-1):
+        if(first_it <= len(all_info)-1 and second_it <= len(all_info)-1):
+            Name_Type.append(all_info[first_it])
+            Phone_Number.append(all_info[second_it])
+            first_it+=2
+            second_it+=2
+        else:
+            exit
+    for l in range(len(all_info)-1):
+        if(all_info[l] == "© 2015 - 2022 Indianhelpline.com"):
+            exit
+        else:
+            f = open('C:/Users/Ashish Goyal/Desktop/devOps_challenges/prog2.csv', 'w')
+            writer = csv.writer(f)
+            writer.writerow([all_info[l],])
+            driver.get(main_url)
         # try:
         #     print(i.text)
         # except NoSuchElementException as exception:
