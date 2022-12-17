@@ -34,7 +34,8 @@ for j in state_name:
         count = count +1
     first_it = 0
     second_it = 1
-    for i in range(len(all_info)-1):
+    print(all_info)
+    for m in range(len(all_info)-1):
         if(first_it <= len(all_info)-1 and second_it <= len(all_info)-1):
             Name_Type.append(all_info[first_it])
             Phone_Number.append(all_info[second_it])
@@ -42,14 +43,17 @@ for j in state_name:
             second_it+=2
         else:
             exit
-    for l in range(len(all_info)-1):
-        if(all_info[l] == "© 2015 - 2022 Indianhelpline.com"):
+    print(Name_Type)
+    print(Phone_Number)
+    for l in range(len(Name_Type)):
+        if(Name_Type[l] == "© 2015 - 2022 Indianhelpline.com"):
             exit
         else:
             f = open('C:/Users/Ashish Goyal/Desktop/devOps_challenges/prog2.csv', 'w')
             writer = csv.writer(f)
-            writer.writerow(j,Name_Type[l],Phone_Number[l])
+            writer.writerow([j,Name_Type[l],Phone_Number[l]])
     driver.get(main_url)
+    print("**********************NEW WEBISTE STARTED***********************")
         # try:
         #     print(i.text)
         # except NoSuchElementException as exception:
